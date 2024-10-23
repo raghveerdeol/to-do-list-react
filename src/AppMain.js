@@ -22,14 +22,27 @@ function AppMain() {
         <main className="App">
             <section className="mainContainer">
                 <h1>TO DO LIST</h1>
-                    <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)}/>
-                    <button onClick={addEvent}>Add</button>
+
+                <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    onKeyDown={(e) => { 
+                        if (e.key === "Enter") 
+                            addEvent(); 
+                    }}
+                />
+                <button
+                    onClick={addEvent}>
+                    Add
+                    </button>
             </section>
             <section className="list">
                 <ul>
                     {doLIst.map((item, index) => (
                         <li key={index}> {item} </li>
                     ))}
+                    { doLIst.length === 0 ? <li>Your list is empty add something</li> : '' } 
                 </ul>
             </section>
         </main>
