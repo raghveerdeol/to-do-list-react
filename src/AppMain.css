@@ -16,6 +16,14 @@ ul {
 
 li {
 	padding: 0 0 0 1rem;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; */
+}
+li > span {
+    text-wrap: wrap;
+    word-break: break-all;
+    width: 70%;
 }
 
 li:not(:last-child) {
@@ -44,4 +52,8 @@ li:nth-child(3n - 1)::marker {
 
 .hidden{
     display: none;
+}
+
+.deleteButton{
+
 }

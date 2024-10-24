@@ -17,6 +17,10 @@ function AppMain() {
         }
     }
 
+    function deleteItem(index) {
+        setDoList(doLIst.filter((_,i) => i !== index));
+    }
+
     return (
         <>
         <main className="App">
@@ -35,14 +39,21 @@ function AppMain() {
                 <button
                     onClick={addEvent}>
                     Add
-                    </button>
+                </button>
             </section>
             <section className="list">
                 <ul>
                     {doLIst.map((item, index) => (
-                        <li key={index}> {item} </li>
+                        <li key={index}>
+                            <span>{item}</span>
+                        <a className="deleteButton" onClick={() => deleteItem(index)}>
+                            Delete
+                        </a>
+                        </li>
                     ))}
-                    { doLIst.length === 0 ? <li>Your list is empty add something</li> : '' } 
+                    { doLIst.length === 0 ? <li>
+                        Your list is empty add something
+                    </li> : '' }
                 </ul>
             </section>
         </main>
