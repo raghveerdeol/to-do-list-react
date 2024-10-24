@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import "./AppMain.css";
 
 function AppMain() {
@@ -47,7 +49,7 @@ function AppMain() {
                         <li key={index}>
                             <span>{item}</span>
                         <a className="deleteButton" onClick={() => deleteItem(index)}>
-                            Delete
+                        <FontAwesomeIcon icon={faTrashCan} />
                         </a>
                         </li>
                     ))}
