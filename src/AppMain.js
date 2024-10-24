@@ -7,6 +7,7 @@ function AppMain() {
     // use state on list array and input value 
     const [doLIst, setDoList] = useState([]);
     const [inputValue, setInputValue] = useState('');
+    const [isChecked, setIsChecked] = useState([]);
 
 
     function addEvent() {
@@ -16,6 +17,15 @@ function AppMain() {
             setDoList([...doLIst, inputValue]);
             // reset input value 
             setInputValue('');
+        }
+    }
+
+    function check(index) {
+        if (isChecked.includes(index)) {
+            setIsChecked(isChecked.filter((i) => i !== index));
+        } else {
+            // add if not find 
+            setIsChecked([...isChecked, index]);
         }
     }
 
@@ -48,10 +58,15 @@ function AppMain() {
                 <ul>
                     {doLIst.map((item, index) => (
                         <li key={index}>
-                            <span>{item}</span>
-                        <a className="deleteButton" onClick={() => deleteItem(index)}>
-                        <FontAwesomeIcon icon={faTrashCan} />
-                        </a>
+                            <span 
+                                className={isChecked.includes(index) ? 'checked' : ''}
+                                onClick={() => check(index)}
+                            >
+                                {item}
+                            </span>
+                            <a className="deleteButton" onClick={() => deleteItem(index)}>
+                            <FontAwesomeIcon icon={faTrashCan} />
+                            </a>
                         </li>
                     ))}
                     { doLIst.length === 0 ? <li>
