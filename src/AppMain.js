@@ -31,6 +31,7 @@ function AppMain() {
 
                 <input
                     type="text"
+                    placeholder="Add something to do"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={(e) => { 
@@ -40,7 +41,7 @@ function AppMain() {
                 />
                 <button
                     onClick={addEvent}>
-                    Add
+                    ADD
                 </button>
             </section>
             <section className="list">
