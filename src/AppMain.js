@@ -20,12 +20,12 @@ function AppMain() {
         }
     }
 
-    function check(index) {
-        if (isChecked.includes(index)) {
-            setIsChecked(isChecked.filter((i) => i !== index));
+    function check(value) {
+        if (isChecked.includes(value)) {
+            setIsChecked(isChecked.filter((i) => i !== value));
         } else {
             // add if not find 
-            setIsChecked([...isChecked, index]);
+            setIsChecked([...isChecked, value]);
         }
     }
 
@@ -59,8 +59,8 @@ function AppMain() {
                     {doLIst.map((item, index) => (
                         <li key={index}>
                             <span 
-                                className={isChecked.includes(index) ? 'checked' : ''}
-                                onClick={() => check(index)}
+                                className={isChecked.includes(item) ? 'checked' : ''}
+                                onClick={() => check(item)}
                             >
                                 {item}
                             </span>
